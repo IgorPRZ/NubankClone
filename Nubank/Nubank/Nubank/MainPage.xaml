@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Nubank.MainPage"
+             xmlns:custom="clr-namespace:Nubank.CustomRenderer">
+
+    <Grid BackgroundColor="White" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="nubankIcon.png" Grid.Row="0" WidthRequest="60" HeightRequest="60"
+               HorizontalOptions="Start" Margin="20,0,0,0"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <custom:CustomButton Text="Usar senha do celular" BackgroundColor="#530082" HorizontalOptions="CenterAndExpand"
+                                 Grid.Row="1" Padding="80,20,80,20" CornerRadius="20" FontSize="17"/>
+
+            <Label Text="Essa senha é a mesma forma de validação que você usa para desbloquear seu celular." HorizontalTextAlignment="Center"
+                   FontSize="14" TextColor="#727272" Grid.Row="2" Margin="20"/>
+        </Grid>
+
+        <StackLayout Orientation="Horizontal" Grid.Row="2" BackgroundColor="#E5E5E5">
+            <Label Text="Pular esta explicação da próxima vez que eu abrir o aplicativo do Nubank." VerticalOptions="CenterAndExpand"
+                   Padding="15" FontSize="15" TextColor="#191919" Margin="10,0,0,0"/>
+
+            <Switch VerticalOptions="CenterAndExpand" Margin="0,0,15,0" OnColor="#BA4DE3" ThumbColor="White" x:Name="switchBool" Toggled="switchBool_Toggled"/> 
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
