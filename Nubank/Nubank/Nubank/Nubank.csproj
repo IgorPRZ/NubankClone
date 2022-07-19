@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,7 +11,40 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <None Remove="CustomRenderer\Font\FontAwesomeBrand.otf" />
+    <None Remove="CustomRenderer\Font\FontAwesomeRegular.otf" />
+    <None Remove="CustomRenderer\Font\FontAwesomeSolid.otf" />
+    <None Remove="CustomRenderer\Font\Roboto-Bold.ttf" />
+    <None Remove="CustomRenderer\Font\Roboto-Light.ttf" />
+    <None Remove="CustomRenderer\Font\Roboto-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="CustomRenderer\Font\FontAwesomeBrand.otf" />
+    <EmbeddedResource Include="CustomRenderer\Font\FontAwesomeRegular.otf" />
+    <EmbeddedResource Include="CustomRenderer\Font\FontAwesomeSolid.otf" />
+    <EmbeddedResource Include="CustomRenderer\Font\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="CustomRenderer\Font\Roboto-Light.ttf" />
+    <EmbeddedResource Include="CustomRenderer\Font\Roboto-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Plugin.Fingerprint" Version="2.1.5" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Helper\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="View\Popup\FingerRequestPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

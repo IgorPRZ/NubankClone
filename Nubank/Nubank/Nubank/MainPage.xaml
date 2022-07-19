@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Nubank.MainPage"
-             xmlns:custom="clr-namespace:Nubank.CustomRenderer">
+             xmlns:custom="clr-namespace:Nubank.CustomRenderer"
+             xmlns:awesome="clr-namespace:FontAwesome"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
 
     <Grid BackgroundColor="White" RowSpacing="0">
         <Grid.RowDefinitions>
@@ -11,24 +13,44 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <Image Source="nubankIcon.png" Grid.Row="0" WidthRequest="60" HeightRequest="60"
+        <Image Source="nubankIcon.png" Grid.Row="0" WidthRequest="50" HeightRequest="50"
                HorizontalOptions="Start" Margin="20,0,0,0"/>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
 
-            <custom:CustomButton Text="Usar senha do celular" BackgroundColor="#530082" HorizontalOptions="CenterAndExpand"
-                                 Grid.Row="1" Padding="80,20,80,20" CornerRadius="20" FontSize="17"/>
+            <StackLayout Grid.Row="0" Orientation="Vertical" Margin="0,30,0,0" xct:TouchEffect.Command="{Binding OpenWarningCommand}">
+                <Label Text="Queresmos deixar seu roxinho ainda mais protegido. Por isso,sempre vamos pedir uma senha para acessar o aplicativo" 
+                       TextColor="Black"
+                       FontSize="25" Padding="24,0,24,0"
+                       Margin="0,30,0,0"
+                       FontAttributes="Bold"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Saiba mais sobre essa iniciativa."
+                           Opacity="1"
+                           FontSize="15"
+                           TextColor="#727272"
+                           Padding="24,0,10,0"
+                           Margin="0,30,0,0"/>
+
+                    <Label FontFamily="FS" Text="{Static awesome:FontAwesomeIcons.LongArrowAltLeft}" TextColor="#8A05BE"
+                           VerticalOptions="EndAndExpand" Rotation="130" Margin="0,0,0,5"/>
+                </StackLayout>
+            </StackLayout>
+
+            <custom:CustomButton Text="Usar senha do celular" BackgroundColor="#8A05BE" HorizontalOptions="CenterAndExpand"
+                                 Grid.Row="1" Padding="80,15,80,15" CornerRadius="20" FontSize="17" TextColor="White" FontAttributes="Bold" Command="{Binding EnterCommand}"/>
 
             <Label Text="Essa senha é a mesma forma de validação que você usa para desbloquear seu celular." HorizontalTextAlignment="Center"
                    FontSize="14" TextColor="#727272" Grid.Row="2" Margin="20"/>
         </Grid>
 
-        <StackLayout Orientation="Horizontal" Grid.Row="2" BackgroundColor="#E5E5E5">
+        <StackLayout Orientation="Horizontal" Grid.Row="2" BackgroundColor="#D4D4D4">
             <Label Text="Pular esta explicação da próxima vez que eu abrir o aplicativo do Nubank." VerticalOptions="CenterAndExpand"
                    Padding="15" FontSize="15" TextColor="#191919" Margin="10,0,0,0"/>
 

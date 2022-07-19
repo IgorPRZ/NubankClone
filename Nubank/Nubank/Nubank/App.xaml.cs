@@ -9,7 +9,7 @@ namespace Nubank
         public App()
         {
             InitializeComponent();
-
+            Application.Current.UserAppTheme = OSAppTheme.Dark;
             MainPage = new MainPage();
         }
 
